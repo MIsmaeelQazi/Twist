@@ -56,6 +56,7 @@ function RoadAndMobs(){
         Mobs[i].Y,
         Mobs[i].Width,
         Mobs[i].Height
+    );
 
 }
 
