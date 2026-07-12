@@ -12,14 +12,14 @@ function RoadAndMobs(){
     PaintBrush.setLineDash([25, 20]);
 
     PaintBrush.beginPath();
-
-    PaintBrush.moveTo(397, 0);      // Middle of the road
-    PaintBrush.lineTo(397, Canvas.height);
+    PaintBrush.moveTo(261, 0);      
+    PaintBrush.lineTo(261, Canvas.height);
+    PaintBrush.moveTo(531, 0);      
+    PaintBrush.lineTo(531, Canvas.height);
 
     PaintBrush.stroke();
 
     PaintBrush.setLineDash([]);
-
 
 
 }
