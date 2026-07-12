@@ -74,6 +74,8 @@ function Main(){
     ScreenRefresh();
     RoadAndMobs();
     MainCar();
+
+    requestAnimationFrame(Main);
 }
 
-main()
+Main()
