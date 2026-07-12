@@ -48,17 +48,30 @@ let Driver = {
     Speed: 5
 }
 
-function ScreenRefresh(){
-    if Keys["ArrowLeft"](){ Driver.X -= Driver.Speed; }
-    if Keys["ArrowRight"](){ Driver.X += Driver.Speed; }
-    if Keys["ArrowUp"](){ Driver.Y -= Driver.Speed; }
-    if Keys["ArrowDown"](){ Driver.Y += Driver.Speed; }
 
+function MainCar(){
+    PaintBrush.fillStyle = "blue";
+    PaintBrush.fillRect(
+        Driver.X,
+        Driver.Y,
+        Driver.Width,
+        Driver.Height
+    );
+}
+function ScreenRefresh(){
+    if (KeyPress["ArrowLeft"]) { 
+
+        Driver.X -= Driver.Speed;}
+
+    if (KeyPress["ArrowRight"]) { 
+
+        Driver.X += Driver.Speed;}
 }
 
 
 
 function Main(){
+
     RoadAndMobs();
 
 }
