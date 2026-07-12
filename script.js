@@ -13,7 +13,7 @@ window.addEventListener("keyup", function(Released) {
 });
 
 
-let Mobs = {};
+let Mobs = [];
 
 Mobs.push({
      X: 350,
@@ -50,14 +50,14 @@ function RoadAndMobs(){
     for (let i=0; i < Mobs.length; i++){
          Mobs[i].Y += Mobs[i].Speed;
 
-    PaintBrush.fillStyle = "red";
-    PaintBrush.fillRect(
-        Mobs[i].X,
-        Mobs[i].Y,
-        Mobs[i].Width,
-        Mobs[i].Height
-    );
-
+        PaintBrush.fillStyle = "red";
+        PaintBrush.fillRect(
+            Mobs[i].X,
+            Mobs[i].Y,
+            Mobs[i].Width,
+            Mobs[i].Height
+        );
+    }
 }
 
 
