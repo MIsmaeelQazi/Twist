@@ -3,6 +3,7 @@ const PaintBrush = Canvas.getContext("2d");
 
 let KeyPress = {};
 
+
 window.addEventListener("keydown", function(Pressed) {
     KeyPress[Pressed.key] = true;
 });
@@ -11,6 +12,16 @@ window.addEventListener("keyup", function(Released) {
     KeyPress[Released.key] = false;
 });
 
+
+let Mobs = {};
+
+Mobs.push({
+     X: 350,
+    Y: 0,
+    Width: 50,
+    Height: 80,
+    Speed: 3
+});
 
 
 function RoadAndMobs(){
@@ -35,6 +46,16 @@ function RoadAndMobs(){
 
     PaintBrush.setLineDash([]);
 
+    // Mobs 
+    for (let i=0; i < Mobs.length; i++){
+         Mobs[i].Y += Mobs[i].Speed;
+
+    PaintBrush.fillStyle = "red";
+    PaintBrush.fillRect(
+        Mobs[i].X,
+        Mobs[i].Y,
+        Mobs[i].Width,
+        Mobs[i].Height
 
 }
 
