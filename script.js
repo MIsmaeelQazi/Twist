@@ -12,7 +12,20 @@ window.addEventListener("keyup", function(Released) {
     KeyPress[Released.key] = false;
 });
 
+function Car(X, Y, Width, Height, Color){
+    PaintBrush.fillStyle = Color;
+    PaintBrush.fillRect(
+    X,
+    Y,
+    Width,
+    Height
+    );
+    
 
+
+}
+
+let colors = ["red", "green", "yellow", "orange", "purple", "pink", "brown", "black"];
 let Mobs = [];
 
 Mobs.push({
@@ -50,13 +63,7 @@ function RoadAndMobs(){
     for (let i=0; i < Mobs.length; i++){
          Mobs[i].Y += Mobs[i].Speed;
 
-        PaintBrush.fillStyle = "red";
-        PaintBrush.fillRect(
-            Mobs[i].X,
-            Mobs[i].Y,
-            Mobs[i].Width,
-            Mobs[i].Height
-        );
+        
     }
 }
 
