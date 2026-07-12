@@ -71,9 +71,9 @@ function ScreenRefresh(){
 
 
 function Main(){
-
+    ScreenRefresh();
     RoadAndMobs();
-
+    MainCar();
 }
 
-
+main()
