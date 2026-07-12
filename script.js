@@ -34,3 +34,6 @@ function Car(){
 
 
 }
+
+RoadAndMobs();
+Car();
