@@ -13,13 +13,6 @@ window.addEventListener("keyup", function(Released) {
 });
 
 function Car(X, Y, Width, Height, Color){
-    PaintBrush.fillStyle = Color;
-    PaintBrush.fillRect(
-    X,
-    Y,
-    Width,
-    Height
-    );
 // top Wheels
     // Left Wheel
     PaintBrush.fillStyle = "black";
@@ -52,6 +45,13 @@ function Car(X, Y, Width, Height, Color){
     32
 );
 
+    PaintBrush.fillStyle = Color;
+    PaintBrush.fillRect(
+    X,
+    Y,
+    Width,
+    Height
+    );
 
 
 }
