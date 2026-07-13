@@ -2,7 +2,12 @@ const Canvas = document.getElementById("GameScreen");
 const PaintBrush = Canvas.getContext("2d");
 
 let KeyPress = {};
-
+let GameOver = false;
+let Score = 0;
+let HighScore = localStorage.getItem("HighScore") || 0;
+let Spawn = 1;
+let RateSpawn = 60;
+let RoadPositions = [38, 175, 300, 425, 550, 688];
 
 window.addEventListener("keydown", function(Pressed) {
     KeyPress[Pressed.key] = true;
@@ -89,30 +94,41 @@ function RoadAndMobs(){
     PaintBrush.fillRect(0, 0, 800, 800);
     
     // Road Lines
-    let LineX = 150;
+    let X = 150;
 
     for (let _ = 0; _ <= 4; _++) {
 
         PaintBrush.beginPath();
-        PaintBrush.moveTo(LineX, 0);
-        PaintBrush.lineTo(LineX, Canvas.height);
+        PaintBrush.moveTo(X, 0);
+        PaintBrush.lineTo(X, Canvas.height);
         PaintBrush.stroke();
 
-        LineX += 125;
+        X += 125;
     }
 
     // Mobs 
-    for (let i=0; i < Mobs.length; i++){
-         Mobs[i].Y += Mobs[i].Speed;
+    Spawn++;
+    if (Spawn >= RateSpawn) {
+        Spawn = 0;
+        
+        let Amount = Math.floor(Math.random() * 3) + 1;
 
-        Car(
-            Mobs[i].X,
-            Mobs[i].Y,
-            Mobs[i].Width,
-            Mobs[i].Height,
-        "red"
-        );
+        for (let i = 0; i < Amount; i++) {
+
+            let Lane = Math.floor(Math.random() * RoadPositions.length);
+
+            Mobs.push({
+                X: RoadPositions[Lane],
+                Y: -140,
+                Width: 75,
+                Height: 140,
+                Speed: 3
+            });
+
+        }
+
     }
+
 }
 
 
@@ -150,12 +166,14 @@ function ScreenRefresh(){
 
 
 function Main(){
-    PaintBrush.clearRect(0, 0, Canvas.width, Canvas.height);
-    ScreenRefresh();
-    RoadAndMobs();
-    MainCar();
-
-    requestAnimationFrame(Main);
+    if(!GameOver){
+        PaintBrush.clearRect(0, 0, Canvas.width, Canvas.height);
+        ScreenRefresh();
+        RoadAndMobs();
+        MainCar();
+        
+        requestAnimationFrame(Main);
+};
 }
 
 Main()
