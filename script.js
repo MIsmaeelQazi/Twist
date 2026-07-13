@@ -74,21 +74,17 @@ function RoadAndMobs(){
     PaintBrush.fillRect(0, 0, 800, 800);
     
     // Road Lines
-    PaintBrush.strokeStyle = "white";
-    PaintBrush.lineWidth = 3;
-    PaintBrush.setLineDash([25, 20]);
+    let LineX = 40;
 
-    PaintBrush.beginPath();
+    for (let _ = 0; _ <= 4; _++) {
 
-    PaintBrush.moveTo(261, 0);      
-    PaintBrush.lineTo(261, Canvas.height);
+        PaintBrush.beginPath();
+        PaintBrush.moveTo(LineX, 0);
+        PaintBrush.lineTo(LineX, Canvas.height);
+        PaintBrush.stroke();
 
-    PaintBrush.moveTo(531, 0);      
-    PaintBrush.lineTo(531, Canvas.height);
-
-    PaintBrush.stroke();
-
-    PaintBrush.setLineDash([]);
+        LineX += 180;
+    }
 
     // Mobs 
     for (let i=0; i < Mobs.length; i++){
