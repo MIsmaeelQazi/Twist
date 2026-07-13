@@ -65,8 +65,8 @@ let Mobs = [];
 Mobs.push({
      X: 350,
     Y: 0,
-    Width: 50,
-    Height: 80,
+    Width: 60,
+    Height: 100,
     Speed: 3
 });
 
@@ -112,8 +112,8 @@ function RoadAndMobs(){
 let Driver = { 
     X: (Canvas.width / 2) - 25,
     Y: Canvas.height - 80,
-    Width: 50,
-    Height: 50,
+    Width: 60,
+    Height: 100,
     Speed: 5
 }
 
@@ -142,6 +142,7 @@ function ScreenRefresh(){
 
 
 function Main(){
+    PaintBrush.clearRect(0, 0, Canvas.width, Canvas.height);
     ScreenRefresh();
     RoadAndMobs();
     MainCar();
