@@ -113,7 +113,7 @@ function RoadAndMobs(){
         
         let Amount = Math.floor(Math.random() * 3) + 1;
 
-        for (let i = 0; i < Amount; i++) {
+        for (let _ = 0; _ < Amount; _++) {
 
             let Lane = Math.floor(Math.random() * RoadPositions.length);
 
@@ -127,15 +127,15 @@ function RoadAndMobs(){
 
         }
 
-        for (let i = 0; i < Mobs.length; i++) {
+        for (let _ = 0; _ < Mobs.length; _++) {
 
-            Mobs[i].Y += Mobs[i].Speed;
+            Mobs[_].Y += Mobs[_].Speed;
 
             Car(
-                Mobs[i].X,
-                Mobs[i].Y,
-                Mobs[i].Width,
-                Mobs[i].Height,
+                Mobs[_].X,
+                Mobs[_].Y,
+                Mobs[_].Width,
+                Mobs[_].Height,
                 "red"
             );
 
