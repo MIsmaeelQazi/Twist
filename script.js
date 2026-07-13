@@ -26,30 +26,30 @@ function Car(X, Y, Width, Height, Color){
     PaintBrush.fillRect(
     X - 5,
     Y + 8,
-    8,
-    16 );
+    16,
+    32 );
 
     // Right Wheel
     PaintBrush.fillRect(
     X + Width - 3,
     Y + 8,
-    8,
-    16
+    16,
+    32
 );
 // Bottom Wheels
     // Left Wheel
     PaintBrush.fillRect(
     X - 5,
     Y + Height - 24,
-    8,
-    16
+    16,
+    32
 );
 // Right Wheel
     PaintBrush.fillRect(
     X + Width - 3,
     Y + Height - 24,
-    8,
-    16
+    16,
+    32
 );
 
 
@@ -62,8 +62,8 @@ let Mobs = [];
 Mobs.push({
      X: 350,
     Y: 0,
-    Width: 100,
-    Height: 160,
+    Width: 75,
+    Height: 140,
     Speed: 3
 });
 
@@ -105,8 +105,8 @@ function RoadAndMobs(){
 let Driver = { 
     X: (Canvas.width / 2) - 25,
     Y: Canvas.height - 220,
-    Width: 100,
-    Height: 160,
+    Width: 75,
+    Height: 140,
     Speed: 5
 }
 
