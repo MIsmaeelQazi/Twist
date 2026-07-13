@@ -127,6 +127,18 @@ function RoadAndMobs(){
 
         }
 
+        for (let i = 0; i < Mobs.length; i++) {
+
+            Mobs[i].Y += Mobs[i].Speed;
+
+            Car(
+                Mobs[i].X,
+                Mobs[i].Y,
+                Mobs[i].Width,
+                Mobs[i].Height,
+                "red"
+            );
+
     }
 
 }
