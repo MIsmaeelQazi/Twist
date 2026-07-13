@@ -44,7 +44,7 @@ function Car(X, Y, Width, Height, Color){
     16,
     32
 );
-
+    // car body
     PaintBrush.fillStyle = Color;
     PaintBrush.fillRect(
     X,
@@ -52,7 +52,22 @@ function Car(X, Y, Width, Height, Color){
     Width,
     Height
     );
+    // WindScreen
+    PaintBrush.fillStyle = "#8FD3FF";   
+    PaintBrush.fillRect(
+    X + 10,
+    Y + 15,
+    55,
+    30
+);
 
+    //Rear Window
+    PaintBrush.fillRect(
+    X + 10,
+    Y + 75,
+    55,
+    25
+);
 
 }
 
