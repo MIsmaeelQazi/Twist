@@ -6,7 +6,7 @@ let GameOver = false;
 let Score = 0;
 let HighScore = localStorage.getItem("HighScore") || 0;
 let Spawn = 1;
-let RateSpawn = 60;
+let RateSpawn = 120;
 let RoadPositions = [38, 175, 300, 425, 550, 688];
 
 window.addEventListener("keydown", function(Pressed) {
@@ -58,7 +58,7 @@ function Car(X, Y, Width, Height, Color){
     Height
     );
     // WindScreen
-    PaintBrush.fillStyle = "#8FD3FF";   
+    PaintBrush.fillStyle = "#9eb7c7";   
     PaintBrush.fillRect(
     X + 10,
     Y + 15,
@@ -143,6 +143,11 @@ function RoadAndMobs(){
                 "red"
             );
 
+        if (Mobs[i].Y > Canvas.height) {
+            Mobs.splice(i, 1);
+            i--;
+            }
+            
         }
     }
 
