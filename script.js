@@ -62,8 +62,8 @@ let Mobs = [];
 Mobs.push({
      X: 350,
     Y: 0,
-    Width: 120,
-    Height: 200,
+    Width: 100,
+    Height: 160,
     Speed: 3
 });
 
@@ -74,7 +74,7 @@ function RoadAndMobs(){
     PaintBrush.fillRect(0, 0, 800, 800);
     
     // Road Lines
-    let LineX = 40;
+    let LineX = 150;
 
     for (let _ = 0; _ <= 4; _++) {
 
@@ -83,7 +83,7 @@ function RoadAndMobs(){
         PaintBrush.lineTo(LineX, Canvas.height);
         PaintBrush.stroke();
 
-        LineX += 180;
+        LineX += 125;
     }
 
     // Mobs 
@@ -105,8 +105,8 @@ function RoadAndMobs(){
 let Driver = { 
     X: (Canvas.width / 2) - 25,
     Y: Canvas.height - 220,
-    Width: 120,
-    Height: 200,
+    Width: 100,
+    Height: 160,
     Speed: 5
 }
 
