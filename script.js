@@ -127,7 +127,11 @@ function RoadAndMobs(){
 
         }
 
-        for (let _ = 0; _ < Mobs.length; _++) {
+        
+
+    }
+
+    for (let _ = 0; _ < Mobs.length; _++) {
 
             Mobs[_].Y += Mobs[_].Speed;
 
@@ -139,9 +143,8 @@ function RoadAndMobs(){
                 "red"
             );
 
+        }
     }
-
-}
 
 
 
