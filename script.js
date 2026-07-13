@@ -40,14 +40,14 @@ function Car(X, Y, Width, Height, Color){
     // Left Wheel
     PaintBrush.fillRect(
     X - 8,
-    Y + 65,
+    Y + 85,
     16,
     32
 );
 // Right Wheel
     PaintBrush.fillRect(
     X + Width - 8,
-    Y + 65,
+    Y + 85,
     16,
     32
 );
