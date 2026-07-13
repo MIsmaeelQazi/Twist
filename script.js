@@ -64,7 +64,7 @@ function Car(X, Y, Width, Height, Color){
     //Rear Window
     PaintBrush.fillRect(
     X + 10,
-    Y + 75,
+    Y + 95,
     55,
     25
 );
