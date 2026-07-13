@@ -108,7 +108,7 @@ function RoadAndMobs(){
 
 let Driver = { 
     X: (Canvas.width / 2) - 25,
-    Y: Canvas.height - 80,
+    Y: Canvas.height - 120,
     Width: 60,
     Height: 100,
     Speed: 5
