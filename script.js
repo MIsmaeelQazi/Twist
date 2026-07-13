@@ -62,8 +62,8 @@ let Mobs = [];
 Mobs.push({
      X: 350,
     Y: 0,
-    Width: 60,
-    Height: 100,
+    Width: 120,
+    Height: 200,
     Speed: 3
 });
 
@@ -109,8 +109,8 @@ function RoadAndMobs(){
 let Driver = { 
     X: (Canvas.width / 2) - 25,
     Y: Canvas.height - 120,
-    Width: 60,
-    Height: 100,
+    Width: 120,
+    Height: 200,
     Speed: 5
 }
 
