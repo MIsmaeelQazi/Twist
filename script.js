@@ -20,39 +20,36 @@ function Car(X, Y, Width, Height, Color){
     Width,
     Height
     );
-    // top Wheels
+// top Wheels
     // Left Wheel
     PaintBrush.fillStyle = "black";
     PaintBrush.fillRect(
-    X - 4,
+    X - 5,
     Y + 8,
-    6,
-    12
-);
-// Right Wheel
-    PaintBrush.fillStyle = "black";
+    8,
+    16 );
+
+    // Right Wheel
     PaintBrush.fillRect(
-    X + 44,
+    X + Width - 3,
     Y + 8,
-    6,
-    12
+    8,
+    16
 );
 // Bottom Wheels
     // Left Wheel
-    PaintBrush.fillStyle = "black";
     PaintBrush.fillRect(
-    X - 4,
-    Y + 44,
-    6,
-    12
+    X - 5,
+    Y + Height - 24,
+    8,
+    16
 );
 // Right Wheel
-    PaintBrush.fillStyle = "black";
     PaintBrush.fillRect(
-    X + 44,
-    Y + 44,
-    6,
-    12
+    X + Width - 3,
+    Y + Height - 24,
+    8,
+    16
 );
 
 
