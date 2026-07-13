@@ -20,7 +20,41 @@ function Car(X, Y, Width, Height, Color){
     Width,
     Height
     );
-    
+    // top Wheels
+    // Left Wheel
+    PaintBrush.fillStyle = "black";
+    PaintBrush.fillRect(
+    X - 4,
+    Y + 8,
+    6,
+    12
+);
+// Right Wheel
+    PaintBrush.fillStyle = "black";
+    PaintBrush.fillRect(
+    X + 44,
+    Y + 8,
+    6,
+    12
+);
+// Bottom Wheels
+    // Left Wheel
+    PaintBrush.fillStyle = "black";
+    PaintBrush.fillRect(
+    X - 4,
+    Y + 44,
+    6,
+    12
+);
+// Right Wheel
+    PaintBrush.fillStyle = "black";
+    PaintBrush.fillRect(
+    X + 44,
+    Y + 44,
+    6,
+    12
+);
+
 
 
 }
@@ -63,7 +97,13 @@ function RoadAndMobs(){
     for (let i=0; i < Mobs.length; i++){
          Mobs[i].Y += Mobs[i].Speed;
 
-        
+        Car(
+            Mobs[i].X,
+            Mobs[i].Y,
+            Mobs[i].Width,
+            Mobs[i].Height,
+        "red"
+        );
     }
 }
 
@@ -79,14 +119,16 @@ let Driver = {
 
 
 function MainCar(){
-    PaintBrush.fillStyle = "blue";
-    PaintBrush.fillRect(
+    Car(
         Driver.X,
         Driver.Y,
         Driver.Width,
-        Driver.Height
+        Driver.Height,
+        "blue"
     );
 }
+
+
 function ScreenRefresh(){
     if (KeyPress["ArrowLeft"]) { 
 
