@@ -106,8 +106,8 @@ function RoadAndMobs(){
 
         X += 125;
     }
-
-    // Mobs 
+}
+function Mob(){
     Spawn++;
     if (Spawn >= RateSpawn) {
         Spawn = 0;
@@ -193,7 +193,8 @@ function Main(){
         ScreenRefresh();
         RoadAndMobs();
         MainCar();
-        
+        Mobs();
+
         requestAnimationFrame(Main);
 };
 }
