@@ -193,7 +193,7 @@ function Main(){
         ScreenRefresh();
         RoadAndMobs();
         MainCar();
-        Mobs();
+        Mob();
 
         requestAnimationFrame(Main);
 };
