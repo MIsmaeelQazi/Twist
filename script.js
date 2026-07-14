@@ -141,7 +141,7 @@ function RoadAndMobs(){
                 Mobs[_].Y,
                 Mobs[_].Width,
                 Mobs[_].Height,
-                MobColor
+                Color : MobColor
             );
 
         if (Mobs[_].Y > Canvas.height) {
