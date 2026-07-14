@@ -123,7 +123,8 @@ function RoadAndMobs(){
                 Y: -140,
                 Width: 75,
                 Height: 140,
-                Speed: 3
+                Speed: 3,
+                Color : colors[Math.floor(Math.random() * colors.length)]
             });
 
         }
