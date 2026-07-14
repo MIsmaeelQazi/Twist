@@ -140,12 +140,12 @@ function RoadAndMobs(){
                 Mobs[_].Y,
                 Mobs[_].Width,
                 Mobs[_].Height,
-                "red"
+                colors[Math.floor(Math.random() * colors.length)]
             );
 
-        if (Mobs[i].Y > Canvas.height) {
-            Mobs.splice(i, 1);
-            i--;
+        if (Mobs[_].Y > Canvas.height) {
+            Mobs.splice(_, 1);
+            _--;
             }
             
         }
