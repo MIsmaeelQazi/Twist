@@ -84,7 +84,8 @@ Mobs.push({
     Y: 0,
     Width: 75,
     Height: 140,
-    Speed: 3
+    Speed: 3,
+    Color : colors[Math.floor(Math.random() * colors.length)]
 });
 
 
@@ -131,7 +132,6 @@ function RoadAndMobs(){
 
     }
 
-    let MobColor = colors[Math.floor(Math.random() * colors.length)]
     for (let _ = 0; _ < Mobs.length; _++) {
 
             Mobs[_].Y += Mobs[_].Speed;
@@ -141,7 +141,7 @@ function RoadAndMobs(){
                 Mobs[_].Y,
                 Mobs[_].Width,
                 Mobs[_].Height,
-                Color : MobColor
+                Mobs[_].Color
             );
 
         if (Mobs[_].Y > Canvas.height) {
