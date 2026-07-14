@@ -76,7 +76,7 @@ function Car(X, Y, Width, Height, Color){
 
 }
 
-let colors = ["red", "green", "yellow", "orange", "purple", "pink", "brown", "black"];
+let colors = ["red", "green", "yellow", "orange", "purple", "pink", "brown"];
 let Mobs = [];
 
 Mobs.push({
