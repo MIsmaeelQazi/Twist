@@ -1,5 +1,5 @@
 const Canvas = document.getElementById("GameScreen");
-const PaintBrush = Canvas.getContext("2d", { willReadFrequently: true });
+const PaintBrush = Canvas.getContext("2d");
 
 let KeyPress = {};
 let GameOver = false;
@@ -7,18 +7,7 @@ let Score = 0;
 let HighScore = localStorage.getItem("HighScore") || 0;
 let Spawn = 1;
 let RateSpawn = 120;
-
-let GrassWidth = 60;
-let RoadLeft = GrassWidth;
-let RoadRight = Canvas.width - GrassWidth;
-let LaneCount = 6;
-let LaneWidth = (RoadRight - RoadLeft) / LaneCount;
-let CarWidth = 75;
-
-let RoadPositions = [];
-for (let i = 0; i < LaneCount; i++) {
-    RoadPositions.push(RoadLeft + i * LaneWidth + (LaneWidth - CarWidth) / 2);
-}
+let RoadPositions = [38, 175, 300, 425, 550, 688];
 
 window.addEventListener("keydown", function(Pressed) {
     KeyPress[Pressed.key] = true;
@@ -91,9 +80,9 @@ let colors = ["red", "green", "yellow", "orange", "purple", "pink", "brown"];
 let Mobs = [];
 
 Mobs.push({
-    X: RoadPositions[Math.floor(Math.random() * RoadPositions.length)],
-    Y: -140,
-    Width: CarWidth,
+     X: 350,
+    Y: 0,
+    Width: 75,
     Height: 140,
     Speed: 3,
     Color : colors[Math.floor(Math.random() * colors.length)]
@@ -101,46 +90,46 @@ Mobs.push({
 
 
 function RoadAndMobs(){
-    // Grass
-    PaintBrush.fillStyle = "green";
-    PaintBrush.fillRect(0, 0, GrassWidth, Canvas.height);
-    PaintBrush.fillRect(RoadRight, 0, GrassWidth, Canvas.height);
-
-    // Road
+    // Road 
     PaintBrush.fillStyle = "gray";
-    PaintBrush.fillRect(RoadLeft, 0, RoadRight - RoadLeft, Canvas.height);
-
+    PaintBrush.fillRect(0, 0, 800, 800);
+    
     // Road Lines
-    for (let i = 1; i < LaneCount; i++) {
+    let X = 150;
 
-        let X = RoadLeft + i * LaneWidth;
+    for (let _ = 0; _ <= 4; _++) {
 
         PaintBrush.beginPath();
         PaintBrush.moveTo(X, 0);
         PaintBrush.lineTo(X, Canvas.height);
         PaintBrush.stroke();
+
+        X += 125;
     }
 }
 function Mob(){
     Spawn++;
     if (Spawn >= RateSpawn) {
         Spawn = 0;
-
+        
         let Amount = Math.floor(Math.random() * 3) + 1;
-        let ShuffledLanes = [...RoadPositions].sort(() => Math.random() - 0.5);
 
         for (let _ = 0; _ < Amount; _++) {
 
+            let Lane = Math.floor(Math.random() * RoadPositions.length);
+
             Mobs.push({
-                X: ShuffledLanes[_],
+                X: RoadPositions[Lane],
                 Y: -140,
-                Width: CarWidth,
+                Width: 75,
                 Height: 140,
                 Speed: 3,
                 Color : colors[Math.floor(Math.random() * colors.length)]
             });
 
         }
+
+        
 
     }
 
@@ -157,7 +146,6 @@ function Mob(){
             );
 
         if (Mobs[_].Y > Canvas.height) {
-            Score++;
             Mobs.splice(_, 1);
             _--;
             }
@@ -168,9 +156,9 @@ function Mob(){
 
 
 let Driver = { 
-    X: RoadPositions[Math.floor(LaneCount / 2)],
+    X: (Canvas.width / 2) - 25,
     Y: Canvas.height - 220,
-    Width: CarWidth,
+    Width: 75,
     Height: 140,
     Speed: 5
 }
@@ -195,8 +183,6 @@ function ScreenRefresh(){
     if (KeyPress["ArrowRight"]) { 
 
         Driver.X += Driver.Speed;}
-
-    Driver.X = Math.max(RoadLeft, Math.min(RoadRight - Driver.Width, Driver.X));
 }
 
 
@@ -208,34 +194,6 @@ function Main(){
         RoadAndMobs();
         MainCar();
         Mob();
-
-        // collision check - look at 4 corners of the driver's body,
-        // if any of them isn't pure blue anymore, something got painted on top of it
-        let Corners = [
-            [Driver.X + 2, Driver.Y + 2],
-            [Driver.X + Driver.Width - 2, Driver.Y + 2],
-            [Driver.X + 2, Driver.Y + Driver.Height - 2],
-            [Driver.X + Driver.Width - 2, Driver.Y + Driver.Height - 2]
-        ];
-
-        for (let i = 0; i < Corners.length; i++) {
-            let Pixel = PaintBrush.getImageData(Corners[i][0], Corners[i][1], 1, 1).data;
-            if (!(Pixel[0] === 0 && Pixel[1] === 0 && Pixel[2] === 255)) {
-                GameOver = true;
-            }
-        }
-
-        if (GameOver) {
-            if (Score > HighScore) {
-                HighScore = Score;
-                localStorage.setItem("HighScore", HighScore);
-            }
-        }
-
-        PaintBrush.fillStyle = "white";
-        PaintBrush.font = "20px sans-serif";
-        PaintBrush.fillText("Score: " + Score, 10, 30);
-        PaintBrush.fillText("High Score: " + HighScore, 10, 55);
 
         requestAnimationFrame(Main);
 };
