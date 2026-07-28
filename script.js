@@ -7,7 +7,7 @@ let Score = 0;
 let HighScore = localStorage.getItem("HighScore") || 0;
 let Spawn = 1;
 let RateSpawn = 120;
-let RoadPositions = [38, 175, 300, 425, 550, 688];
+let RoadPositions = [175, 300, 425, 550];
 
 window.addEventListener("keydown", function(Pressed) {
     KeyPress[Pressed.key] = true;
