@@ -189,8 +189,8 @@ function Main(){
         PaintBrush.clearRect(0, 0, Canvas.width, Canvas.height);
         ScreenRefresh();
         RoadAndMobs();
-        DashOffset += 5;
-        if (DashOffset >= 50) {
+        DashOffset += 3;
+        if (DashOffset >= 100) {
             DashOffset = 0;
         }
         MainCar();
