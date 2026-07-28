@@ -79,17 +79,30 @@ function Car(X, Y, Width, Height, Color){
 let colors = ["red", "green", "yellow", "orange", "purple", "pink", "brown"];
 let Mobs = [];
 
-Mobs.push({
-     X: 350,
-    Y: 0,
-    Width: 75,
-    Height: 140,
-    Speed: 3,
-    Color : colors[Math.floor(Math.random() * colors.length)]
-});
-
 
 function RoadAndMobs(){
+    //Grass
+    PaintBrush.fillStyle = "#2f8f2f";
+    PaintBrush.fillRect(0,0,150,Canvas.height);
+
+    PaintBrush.fillRect(
+        650,
+        0,
+        150,
+        Canvas.height
+    );
+
+    //Grass
+    PaintBrush.fillStyle = "#2f8f2f";
+    PaintBrush.fillRect(0,0,675,Canvas.height);
+
+    PaintBrush.fillRect(
+        650,
+        0,
+        150,
+        Canvas.height
+    );
+
     // Road 
     PaintBrush.fillStyle = "gray";
     PaintBrush.fillRect(0, 0, 800, 800);
