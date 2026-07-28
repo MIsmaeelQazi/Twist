@@ -190,7 +190,7 @@ function Main(){
         ScreenRefresh();
         RoadAndMobs();
         DashOffset += 3;
-        if (DashOffset >= 120) {
+        if (DashOffset >= 90) {
             DashOffset = 0;
         }
         MainCar();
