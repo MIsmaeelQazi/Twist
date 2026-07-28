@@ -85,23 +85,7 @@ function RoadAndMobs(){
     PaintBrush.fillStyle = "#2f8f2f";
     PaintBrush.fillRect(0,0,150,Canvas.height);
 
-    PaintBrush.fillRect(
-        650,
-        0,
-        150,
-        Canvas.height
-    );
-
-    //Grass
-    PaintBrush.fillStyle = "#2f8f2f";
-    PaintBrush.fillRect(0,0,675,Canvas.height);
-
-    PaintBrush.fillRect(
-        650,
-        0,
-        150,
-        Canvas.height
-    );
+    PaintBrush.fillRect(650,0,150,Canvas.height);
 
     // Road 
     PaintBrush.fillStyle = "gray";
