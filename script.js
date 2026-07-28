@@ -8,6 +8,8 @@ let HighScore = localStorage.getItem("HighScore") || 0;
 let Spawn = 1;
 let RateSpawn = 120;
 let RoadPositions = [175, 300, 425, 550];
+let DashOffset = 0;
+
 
 window.addEventListener("keydown", function(Pressed) {
     KeyPress[Pressed.key] = true;
@@ -87,18 +89,15 @@ function RoadAndMobs(){
     PaintBrush.fillRect(0, 0, 800, 800);
     
     // Road Lines
-    let X = 150;
+    PaintBrush.fillStyle = "white";
 
-    for (let _ = 0; _ <= 4; _++) {
+    for (let X = 275; X <= 525; X += 125) {
 
-        PaintBrush.beginPath();
-        PaintBrush.moveTo(X, 0);
-        PaintBrush.lineTo(X, Canvas.height);
-        PaintBrush.stroke();
+        for (let Y = -50 + DashOffset; Y < Canvas.height; Y += 100) {
+            PaintBrush.fillRect(X - 3,Y,6,50);
+        }
 
-        X += 125;
     }
-
     //Grass
     PaintBrush.fillStyle = "#2f8f2f";
     PaintBrush.fillRect(0,0,150,Canvas.height);
@@ -190,11 +189,15 @@ function Main(){
         PaintBrush.clearRect(0, 0, Canvas.width, Canvas.height);
         ScreenRefresh();
         RoadAndMobs();
+        DashOffset += 5;
+        if (DashOffset >= 50) {
+            DashOffset = 0;
+        }
         MainCar();
         Mob();
 
         requestAnimationFrame(Main);
-};
+    };
 }
 
 Main()
